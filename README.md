@@ -56,8 +56,8 @@
 
 | Column         | Type       | Options                        |
 | -------------  | ---------  | ------------------------------ |
-| postal_cord    | integer    | null: false                    |
-| prefecture     | integer    | null: false                        |
+| postal_cord    | string     | null: false                    |
+| prefecture     | integer    | null: false                    |
 | city           | string     | null: false                    |
 | block          | string     | null: false                    |
 | buliding_name  | string     | null: false                    |
