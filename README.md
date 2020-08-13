@@ -54,14 +54,14 @@
 
 ## addresses テーブル
 
-| Column         | Type   | Options     |
-| -------------  | ------ | ----------- |
-| postal_cord    | string | null: false |
-| prefecture     | string | null: false |
-| city           | string | null: false |
-| block          | string | null: false |
-| buliding_name  | string | null: false |
-| phone_number   | string | null: false |
+| Column         | Type       | Options                        |
+| -------------  | ---------  | ------------------------------ |
+| postal_cord    | integer    | null: false                   |
+| city           | string     | null: false                    |
+| block          | string     | null: false                    |
+| buliding_name  | string     | null: false                    |
+| phone_number   | integer    | null: false                    |
+| buy_id         | references | null: false, foreign_key: true |
 
 ### Association
 
