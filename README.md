@@ -31,7 +31,7 @@
 | shipping_charges  | integer     | null: false                     |
 | shipping_address  | integer     | null: false                     |
 | delivery_days     | integer     | null: false                     |
-| user_id           | references  | null: false, foreign_key: true  |
+| user              | references  | null: false, foreign_key: true  |
 
 ### Association
 
@@ -42,8 +42,8 @@
 
 | Column      | Type       | Options                         |
 | ----------  | ---------- | ------------------------------  |
-| user_id     | references | null: false, foreign_key: true  |
-| item_id     | refarences | null: false, foreign_key: true  |
+| user        | references | null: false, foreign_key: true  |
+| item        | refarences | null: false, foreign_key: true  |
 
 ### Association
 
@@ -62,7 +62,7 @@
 | block          | string     | null: false                    |
 | buliding_name  | string     | null: false                    |
 | phone_number   | integer    | null: false                    |
-| buy_id         | references | null: false, foreign_key: true |
+| buy            | references | null: false, foreign_key: true |
 
 ### Association
 
