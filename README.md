@@ -26,6 +26,11 @@
 | text              | text        | null: false                     |
 | price             | integer     | null: false                     |
 | image             | string      | null:false                      |
+| category          | integer     | null: false                     |
+| product_state     | integer     | null: false                     |
+| shipping_charges  | integer     | null: false                     |
+| shipping_address  | integer     | null: false                     |
+| delivery_days     | integer     | null: false                     |
 | user_id           | references  | null: false, foreign_key: true  |
 
 ### Association
@@ -44,6 +49,7 @@
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :address
 
 
 ## addresses テーブル
@@ -59,5 +65,5 @@
 
 ### Association
 
-- has_one :buy
+- belomgs_to :buy
 
