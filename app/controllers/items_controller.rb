@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:new]
+
   def index
+    
     
   end
 
@@ -8,10 +10,35 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    # @item = Item.find(params[:id])
+    # flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to action: index
+    else
+      render "new"
+    end
+    # @item =Item.create(item_params) 
+    # binding.pry
+  end
+
+
+  def seles
+
   end
 
   def show
   end
 
+  private
+
+  def item_params
+    params.require(:item).permit(:image, :name, :text, :price, :category_id, :product_state_id, :shipping_charges_id, :shipping_address_id, :delivery_days_id)
+    .merge(user_id: current_user.id)
+  end
 
 end
