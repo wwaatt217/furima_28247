@@ -4,14 +4,9 @@ RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
   end
- 
-    describe '商品出品' do
-      # it "imageが空だと出品できない" do
-      #   @item.image = ""
-      #   binding.pry
-      #   @item.valid?
-      # end
-
+  
+  describe '商品出品' do
+    
       it "必須事項入力で出品ができる" do
         @item
         expect(@item).to be_valid
@@ -79,5 +74,4 @@ RSpec.describe Item, type: :model do
 
 
     end
-
 end

@@ -11,8 +11,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    # @item = Item.find(params[:id])
-    # flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
   end
 
   def create
@@ -22,8 +20,6 @@ class ItemsController < ApplicationController
     else
       render "new"
     end
-    # @item =Item.create(item_params) 
-    # binding.pry
   end
 
 

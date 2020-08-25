@@ -1,13 +1,14 @@
 class Item < ApplicationRecord
+  belongs_to :user
+  has_one :buy
+ 
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one_attached :image
-
-  # belongs_to_active_hash :category
 
   validates :category_id, :product_state_id, :shipping_charges_id, :shipping_address_id, :delivery_days_id, numericality: { other_than: 1 } 
 
   with_options presence: true do
-    # validates :image
     validates :name
     validates :text
     validates :category_id
