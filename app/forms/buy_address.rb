@@ -9,7 +9,6 @@ class BuyAddress
     validates :city
     validates :block
     validates :phone_number, format: { with: /\A\d{11}\z/ }
-    # validates :buy_id
   end
   validates :prefecture, numericality: { other_than: 1, message: "can't be blank" }
 

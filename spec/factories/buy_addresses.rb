@@ -6,9 +6,6 @@ FactoryBot.define do
     block             { '青山1-1-1' }
     building_name     { '柳ビル' }
     phone_number      { '09012345678' }
-    # association :user
-    # association :item
-    # association :buy
     user_id { 1 }
     item_id { 1 }
     buy_id  { 1 }
