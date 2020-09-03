@@ -4,6 +4,9 @@ class BuysController < ApplicationController
 
   def index
     @buy_address = BuyAddress.new
+    if @current_user.id == @item.user.id
+      redirect_to root_path
+    end
   end
 
   def new
@@ -28,7 +31,9 @@ class BuysController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless user_signed_in?
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
 
   def set_item
