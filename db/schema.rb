@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2020_08_25_054844) do
   end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postal_cord", null: false
+    t.string "postal_code", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.string "block", null: false
-    t.string "buliding_name", null: false
-    t.integer "phone_number", null: false
+    t.string "building_name", null: false
+    t.string "phone_number", null: false
     t.bigint "buy_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_054844) do
   end
 
   create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "item_id"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_buys_on_item_id"
@@ -90,5 +90,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_054844) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "buys"
+  add_foreign_key "buys", "items"
+  add_foreign_key "buys", "users"
   add_foreign_key "items", "users"
 end
