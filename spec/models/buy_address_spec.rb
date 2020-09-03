@@ -6,10 +6,6 @@ RSpec.describe BuyAddress, type: :model do
   end
 
   describe '商品購入' do
-    it '必須事項入力で購入ができる' do
-      @buy_address
-      expect(@buy_address).to be_valid
-    end
 
     it 'user_idが空だと購入できない' do
       @buy_address.user_id = ''

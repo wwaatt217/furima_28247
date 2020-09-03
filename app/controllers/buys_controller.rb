@@ -11,6 +11,7 @@ class BuysController < ApplicationController
   end
 
   def create
+    # binding.pry
     @buy_address = BuyAddress.new(buy_address_params)
     if @buy_address.valid?
       pay_item
@@ -24,11 +25,7 @@ class BuysController < ApplicationController
   private
 
   def buy_address_params
-    params.permit(:item_id, :postal_code, :prefecture, :city, :block, :building_name, :phone_number).merge(user_id: current_user.id)
-  end
-
-  def buy_params
-    params.permit(:token)
+    params.permit(:token, :item_id, :postal_code, :prefecture, :city, :block, :building_name, :phone_number).merge(user_id: current_user.id)
   end
 
   def move_to_index
@@ -43,7 +40,7 @@ class BuysController < ApplicationController
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
-      card: buy_params[:token],
+      card: buy_address_params[:token],
       currency: 'jpy'
     )
   end
