@@ -1,0 +1,26 @@
+<%= render "devise/shared/header" %>
+
+
+<div class='item-contents'>
+    <h2 class='title'>ユーザー：<%= @user.name %></h2>
+    <ul class='item-lists'>
+
+  <% @items.each do |item| %>
+    <% if item.user_id == @user.id %>
+  <li class='list'>
+      <%= link_to item_path(item.id), method: :get do %>
+      <div class='item-img-content'>
+      <%= image_tag item.image, class: "item-img" %>
+      <div class='sold-out'>
+      <% if item.buy %>
+            <span>Sold Out!!</span>
+       <%end%>
+          </div>
+    </div>
+  <% end %>
+  <% end %>
+  <% end %>
+  </li>
+
+
+<%= render "devise/shared/footer" %>
